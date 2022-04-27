@@ -1,0 +1,30 @@
+const MODE_DARK = "dark"
+const MODE_LIGHT = "light"
+
+export const VALID_MODES = [MODE_DARK, MODE_LIGHT]
+export const BUTTON_MODES = {
+  DARK: MODE_DARK,
+  LIGHT: MODE_LIGHT
+}
+
+const VARIANT_PRIMARY = "primary"
+const VARIANT_SECONDARY = "secondary"
+const VARIANT_DARK = "dark"
+
+export const VALID_VARIANTS = [VARIANT_PRIMARY, VARIANT_SECONDARY, VARIANT_DARK]
+export const BUTTON_VARIANTS = {
+  PRIMARY: VARIANT_PRIMARY,
+  SECONDARY: VARIANT_SECONDARY,
+  DARK: VARIANT_DARK
+}
+
+const SIZE_LARGE = "large"
+const SIZE_MEDIUM = "medium"
+const SIZE_SMALL = "small"
+
+export const VALID_SIZES = [SIZE_LARGE, SIZE_MEDIUM, SIZE_SMALL]
+export const BUTTON_SIZES = {
+  LARGE: SIZE_LARGE,
+  MEDIUM: SIZE_MEDIUM,
+  SMALL: SIZE_SMALL
+}

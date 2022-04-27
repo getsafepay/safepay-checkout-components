@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Safepay checkout demo</title>
+	<script type="text/javascript" src="http://localhost:1337/dist/sfpy-checkout.js"></script>
+</head>
+<body>
+  <!-- Set up a container element for the button -->
+  <div id="safepay-button-container"></div>
+	<script>
+    safepay.Button({
+      env: 'sandbox',
+      client: {
+        "sanbox": "sec_733defcf-835f-4cd1-99fd-b3e62dd83fe0",
+      },
+      style: {
+        mode: "light", // dark or light
+        size: "large", // small medium large
+        variant: "primary" // primary dark
+      },
+      orderId: "12344", // Your custom order ID
+      // Details to set up the transaction 
+      // when a payment button is clicked
+      payment: {
+        "currency": "PKR",
+        "amount": 1000.50
+      },
+      // Finalize the transaction after payer approval
+      onPayment: function (payment) {
+        // At this point your customer has approved the payment
+        // and you can show a success message or make an API request
+        // to your servers to add the data.
+        return fetch(`/api/orders/mark-paid`, {
+          method: "post",
+        })
+      },
+      onCancel: function () {
+        console.log('cancelled')
+      }
+    }).render("#safepay-button-container");
+  </script>
+</body>
+</html>
