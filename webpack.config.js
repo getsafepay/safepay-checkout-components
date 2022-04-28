@@ -9,7 +9,7 @@ const config = getWebpackConfig({
   entry: './src/index.js',
   filename: `${ CHECKOUT_FILE_NAME }.js`,
   modulename: MODULE_NAME,
-  libraryTarget: 'window',
+  libraryTarget: 'umd',
   vars: globals
 })
 
