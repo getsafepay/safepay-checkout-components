@@ -13,7 +13,7 @@ export const BUTTON_SIZE_STYLE = {
   [BUTTON_SIZES.MEDIUM]: {
     defaultWidth:      250,
     defaultHeight:     100,
-    minWidth:          200,
+    minWidth:          250,
     maxWidth:          400,
     minHeight:         56,
     maxHeight:         108
@@ -22,7 +22,7 @@ export const BUTTON_SIZE_STYLE = {
   [BUTTON_SIZES.LARGE]: {
     defaultWidth:      350,
     defaultHeight:     124,
-    minWidth:          300,
+    minWidth:          350,
     maxWidth:          500,
     minHeight:         60,
     maxHeight:         132

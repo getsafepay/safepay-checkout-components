@@ -12,7 +12,7 @@ export const Button = create({
   url: ({ props }) => Config.buttonUrls[props.env],
 
   autoResize: {
-    width:  false,
+    width:  true,
     height: true
   },
 

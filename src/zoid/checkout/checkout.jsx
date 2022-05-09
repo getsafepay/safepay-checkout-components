@@ -2,7 +2,7 @@
 
 import { node, dom } from '@krakenjs/jsx-pragmatic/src';
 import { create, CONTEXT } from 'zoid/src'
-import { isDevice, supportsPopups, noop } from '@krakenjs/belter/src';
+import { isDevice, noop } from '@krakenjs/belter/src';
 import { Config } from '../../configs/index.js'
 import { DEFAULT_POPUP_SIZE } from './ui/config.js'
 import { SpinnerPage } from './prerender.jsx';
