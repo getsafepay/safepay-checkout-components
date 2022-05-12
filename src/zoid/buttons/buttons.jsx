@@ -18,6 +18,8 @@ export const Button = create({
 
   domain: Config.safepayDomainRegex,
 
+  bridgeUrl: ({ props }) => Config.metaFrameUrls[props.env],
+
   containerTemplate,
 
   defaultContext: CONTEXT.IFRAME,

@@ -43,7 +43,7 @@ yarn add @sfpy/checkout-components
 <html>
   <head>
     <!-- ..... -->
-    <script src="https://unpkg.com/@sfpy/checkout-components@0.0.5/dist/sfpy-checkout.js"></script>
+    <script src="https://unpkg.com/@sfpy/checkout-components@0.0.6/dist/sfpy-checkout.js"></script>
     <!-- ..... -->
   </head>
   <body>
@@ -65,7 +65,7 @@ Support for all the popular frameworks like React, Angular and Vue comes out of 
 <html>
 <head>
 	<title>Safepay checkout demo</title>
-	<script type="text/javascript" src="https://unpkg.com/@sfpy/checkout-components@0.0.5/dist/sfpy-checkout.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/@sfpy/checkout-components@0.0.6/dist/sfpy-checkout.js"></script>
 </head>
 <body>
   <!-- Set up a container element for the button -->
@@ -157,6 +157,7 @@ const MyCheckoutPage = ({ orderId }) => (
         size: 'medium',
         variant: 'primary'
       }}
+      orderId={"12344"},
       payment={{
         "currency": "PKR",
         "amount": 1000.50
