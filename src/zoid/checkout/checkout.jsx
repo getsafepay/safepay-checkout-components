@@ -55,13 +55,16 @@ export const Checkout = create({
   props: {
     env: {
       type: 'string',
-      required: true,
+      required: false,
       queryParam: true,
     },
-    beacon: {
-      type: 'string',
+    payment: {
+      type: 'function',
       required: true,
-      queryParam: true
+      queryParam: "beacon",
+      queryValue: ({ value }) => {
+        return value()
+      }
     },
     xcomponent: {
       type:       'string',

@@ -22,14 +22,7 @@ export function Overlay({ context, close, focus, event, frame, prerenderFrame, c
     if (!supportsPopups()) {
       return;
     }
-
-    if (isIos()) {
-      window.alert('Please switch tabs to reactivate the Safepay window');
-    } else if (isFirefox()) {
-      window.alert('Don\'t see the popup window?\n\nSelect "Window" in your toolbar to find "Log in to your Safepay account"');
-    } else {
-      focus();
-    }
+    focus();
   }
 
   const setupAnimations = (name) => {
