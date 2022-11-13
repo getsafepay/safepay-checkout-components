@@ -58,6 +58,18 @@ export const Checkout = create({
       required: false,
       queryParam: true,
     },
+    orderId: {
+      type: 'string',
+      required: false,
+      queryParam: "order_id",
+    },
+    source: {
+      type: 'string',
+      queryParam: true,
+      default: () => {
+        return 'checkout'
+      }
+    },
     payment: {
       type: 'function',
       required: true,

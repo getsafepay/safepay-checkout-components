@@ -90,6 +90,7 @@ Support for all the popular frameworks like React, Angular and Vue comes out of 
             variant: "primary", // primary dark
           },
           orderId: "12344", // Your custom order ID
+          source: "website" // The source of the payment
           // Details to set up the transaction
           // when a payment button is clicked
           payment: {
@@ -124,7 +125,8 @@ The Safepay Checkout Button expects the following props to be passed to it in or
 | `env`       | `string`   | `true`   | One of two possible values `sandbox` or `production`                                                                                                                          |
 | `client`    | `object`   | `true`   | A map of `env` to your api key. Each value in the map must correspond to the api key for the correct environment                                                              |
 | `style`     | `object`   | `true`   | A few options to configure the look and feel of the button                                                                                                                    |
-| `orderId`   | `string`   | `false`  | An option value in case you want to link your store's order ID with this payment                                                                                              |
+| `orderId`   | `string`   | `false`  | An optional value in case you want to link your store's order ID with this payment                                                                                            |
+| `source`    | `string`   | `false`  | An optional value in case you want to link a source with this payment to identify the channel                                                                                 |
 | `payment`   | `object`   | `true`   | Amount and currency values to configure the payment when your customer clicks a button                                                                                        |
 | `onPayment` | `function` | `true`   | A callback to notify you when your customer has completed the payment. This function is passed in the Transaction object through the `payment` attribute on the `data` object |
 | `onCancel`  | `function` | `true`   | A callback to notify you when your customer cancels the payment or abandons it. At this point you're free to take them back to the shopping cart page for instance            |
