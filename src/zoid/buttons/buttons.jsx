@@ -29,6 +29,18 @@ export const Button = create({
       type: 'string',
       required: true
     },
+    orderId: {
+      type: 'string',
+      required: false,
+      queryParam: "order_id",
+    },
+    source: {
+      type: 'string',
+      queryParam: true,
+      default: () => {
+        return 'checkout'
+      }
+    },
     client: {
       type: 'object',
       required: true,
