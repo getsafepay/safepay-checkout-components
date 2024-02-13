@@ -69,7 +69,7 @@ export const Button = create({
       }
     },
 
-    beforePayment: {
+    hydratePayment: {
       type: 'function',
       required: false,
       default: () => {
