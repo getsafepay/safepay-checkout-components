@@ -69,6 +69,14 @@ export const Button = create({
       }
     },
 
+    hydratePayment: {
+      type: 'function',
+      required: false,
+      default: () => {
+        console.log('no default pre payment validation')
+      }
+    },
+
     payment: {
       type: 'object',
       required: true,
