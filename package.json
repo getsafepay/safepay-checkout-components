@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": " yarn run clean && webpack build --progress",
-    "serve": "echo 'Navigate to http://localhost:1337/demo/basic/iframe/index.html' && serve . --listen 1337",
+    "serve": "echo 'Navigate to http://localhost:1337/demo/basic/iframe/index.html' && serve . --listen 1337 --cors",
     "clean": "rimraf dist"
   },
   "dependencies": {
