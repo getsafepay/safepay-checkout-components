@@ -24,7 +24,6 @@ export const Button = create({
 
   defaultContext: CONTEXT.IFRAME,
 
-  // new props
 
   props: {
     env: {

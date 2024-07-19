@@ -37,7 +37,6 @@ export const Checkout = create({
       windowMessage:   "Don't see the secure Safepay browser? We'll help you re-launch the window to complete your purchase",
       continueMessage: 'Click to Continue'
     }
-    console.log(props)
     return (
       <Overlay
         context={ context }
@@ -52,7 +51,6 @@ export const Checkout = create({
     ).render(dom({ doc }));
   },
 
-  // new props
 
   props: {
     tracker: {
