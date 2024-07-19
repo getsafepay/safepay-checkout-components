@@ -75,7 +75,7 @@ export const Checkout = create({
       queryParam: true,
       value:      () => '1'
     },
-    onPayment: {
+    onSuccess: {
       type: 'function',
       required: true,
       default: () => {
@@ -87,66 +87,20 @@ export const Checkout = create({
           close()
         }
       }
-    }
+    },
+    onCancel: {
+      type: 'function',
+      required: false,
+      default: () => {
+        console.log('payment cancelled')
+      },
+      decorate({ close, value = noop }) {
+        return (...args) => {
+          value(...args)
+          close()
+        }
+      }
+    },
   },
 
-//   props: {
-//     env: {
-//       type: 'string',
-//       required: false,
-//       queryParam: true,
-//     },
-//     orderId: {
-//       type: 'string',
-//       required: false,
-//       queryParam: "order_id",
-//     },
-    
-//     source: {
-//       type: 'string',
-//       queryParam: true,
-//       default: () => {
-//         return 'checkout'
-//       }
-//     },
-//     payment: {
-//       type: 'function',
-//       required: true,
-//       queryParam: "beacon",
-//       queryValue: ({ value }) => {
-//         return value()
-//       }
-//     },
-//     xcomponent: {
-//       type:       'string',
-//       queryParam: true,
-//       value:      () => '1'
-//     },
-//     onCancel: {
-//       type: 'function',
-//       required: false,
-//       default: () => {
-//         console.log('payment cancelled')
-//       },
-//       decorate({ close, value = noop }) {
-//         return (...args) => {
-//           value(...args)
-//           close()
-//         }
-//       }
-//     },
-//     onPayment: {
-//       type: 'function',
-//       required: true,
-//       default: () => {
-//         console.log('payment complete')
-//       },
-//       decorate({ close, value = noop }) {
-//         return (...args) => {
-//           value(...args)
-//           close()
-//         }
-//       }
-//     }
-//   }
 })
