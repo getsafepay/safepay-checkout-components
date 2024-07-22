@@ -5,7 +5,6 @@ import { noop } from '@krakenjs/belter/src';
 import { Config } from '../../configs/index.js'
 import { containerTemplate } from './container.jsx'
 import { VALID_MODES, VALID_SIZES, VALID_VARIANTS } from '../../constants/button.js'
-import { isAmountValid, isCurrencyValid } from './utils.js'
 
 export const Button = create({
   tag: 'safepay-button',
@@ -55,14 +54,7 @@ export const Button = create({
         console.log('please implement this function')
       }
     },
-    onPaymentSuccess: {
-      type: 'function',
-      required: true,
-      default: () => {
-        console.log('please implement this function')
-      }
-    },
-    onSuccess: {
+    onCompletePayment: {
       type: 'function',
       required: false,
       default: () => {
