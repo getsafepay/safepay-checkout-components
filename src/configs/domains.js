@@ -3,13 +3,6 @@ import { ENV } from "./constants.js";
 export const Config = {
   env: ENV.LOCAL,
 
-  // checkoutUris: {
-  // 	[ ENV.LOCAL ]: "/pay",
-  // 	[ ENV.DEV ]: "/checkout/pay",
-  // 	[ ENV.SANDBOX ]: "/checkout/pay",
-  // 	[ ENV.PRODUCTION ]: "/checkout/pay"
-  // },
-
   checkoutUris: {
     [ENV.LOCAL]: "/",
     [ENV.DEV]: "/embedded",
