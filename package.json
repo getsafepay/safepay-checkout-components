@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@sfpy/checkout-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Safepay Checkout components, for integrating checkout products.",
   "main": "dist/sfpy-checkout.js",
   "repository": "git://github.com/getsafepay/safepay-checkout-components.git",
