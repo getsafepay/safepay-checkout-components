@@ -5,7 +5,6 @@ import { noop } from '@krakenjs/belter/src';
 import { Config } from '../../configs/index.js'
 import { containerTemplate } from './container.jsx'
 import { VALID_MODES, VALID_SIZES, VALID_VARIANTS } from '../../constants/button.js'
-import { isAmountValid, isCurrencyValid } from './utils.js'
 
 export const Button = create({
   tag: 'safepay-button',
@@ -24,36 +23,16 @@ export const Button = create({
 
   defaultContext: CONTEXT.IFRAME,
 
+
   props: {
     env: {
       type: 'string',
-      required: true
-    },
-    orderId: {
-      type: 'string',
-      required: false,
-      queryParam: "order_id",
-    },
-    source: {
-      type: 'string',
-      queryParam: true,
-      default: () => {
-        return 'checkout'
-      }
-    },
-    client: {
-      type: 'object',
       required: true,
-      validate: ({ value, props }) => {
-        const { env } = props;
-        if (!value[env]) {
-          throw new Error(`Client ID not found for env ${env}`)
-        }
-      },
+      queryParam: true
     },
     style: {
       type: 'object',
-      required: true,
+      required: false,
       queryParam: true,
       serialization: 'dotify',
       validate: function({ value, props }) {
@@ -68,41 +47,14 @@ export const Button = create({
         }
       }
     },
-
-    hydratePayment: {
-      type: 'function',
-      required: false,
-      default: () => {
-        console.log('no default pre payment validation')
-      }
-    },
-
-    payment: {
-      type: 'object',
-      required: true,
-      validate: ({ value, props }) => {
-        const { amount, currency } = value
-        const amountErr = isAmountValid(amount)
-        if (amountErr) {
-          throw amountErr
-        }
-
-        const currencyErr = isCurrencyValid(currency)
-        if (currencyErr) {
-          throw currencyErr
-        }
-      }
-    },
-
-    onCancel: {
-      type: 'function',
-      required: false,
-      default: () => {
-        console.log('payment cancelled')
-      }
-    },
-
     onPayment: {
+      type: 'function',
+      required: true,
+      default: () => {
+        console.log('please implement this function')
+      }
+    },
+    onCompletePayment: {
       type: 'function',
       required: false,
       default: () => {
@@ -113,6 +65,13 @@ export const Button = create({
           value(...args)
         }
       }
-    }
-  }
+    },
+    onCancel: {
+      type: 'function',
+      required: false,
+      default: () => {
+        console.log('payment cancelled')
+      }
+    },
+  },
 })

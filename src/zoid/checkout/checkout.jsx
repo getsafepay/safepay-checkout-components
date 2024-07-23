@@ -37,7 +37,6 @@ export const Checkout = create({
       windowMessage:   "Don't see the secure Safepay browser? We'll help you re-launch the window to complete your purchase",
       continueMessage: 'Click to Continue'
     }
-    
     return (
       <Overlay
         context={ context }
@@ -52,36 +51,40 @@ export const Checkout = create({
     ).render(dom({ doc }));
   },
 
+
   props: {
-    env: {
-      type: 'string',
-      required: false,
-      queryParam: true,
-    },
-    orderId: {
-      type: 'string',
-      required: false,
-      queryParam: "order_id",
-    },
-    source: {
-      type: 'string',
-      queryParam: true,
-      default: () => {
-        return 'checkout'
-      }
-    },
-    payment: {
-      type: 'function',
+    tracker: {
       required: true,
-      queryParam: "beacon",
-      queryValue: ({ value }) => {
-        return value()
-      }
+      queryParam: true,
+      type: 'string'
+    },
+    tbt: {
+      required: true,
+      queryParam: true,
+      type: 'string'
+    },
+    env: {
+      required: true,
+      queryParam: "environment",
+      type: 'string'
     },
     xcomponent: {
       type:       'string',
       queryParam: true,
       value:      () => '1'
+    },
+    onSuccess: {
+      type: 'function',
+      required: true,
+      default: () => {
+        console.log('payment complete')
+      },
+      decorate({ close, value = noop }) {
+        return (...args) => {
+          value(...args)
+          close()
+        }
+      }
     },
     onCancel: {
       type: 'function',
@@ -96,18 +99,6 @@ export const Checkout = create({
         }
       }
     },
-    onPayment: {
-      type: 'function',
-      required: true,
-      default: () => {
-        console.log('payment complete')
-      },
-      decorate({ close, value = noop }) {
-        return (...args) => {
-          value(...args)
-          close()
-        }
-      }
-    }
-  }
+  },
+
 })

@@ -1,14 +1,14 @@
 {
   "type": "module",
   "name": "@sfpy/checkout-components",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "Safepay Checkout components, for integrating checkout products.",
   "main": "dist/sfpy-checkout.js",
   "repository": "git://github.com/getsafepay/safepay-checkout-components.git",
   "license": "MIT",
   "scripts": {
     "build": " yarn run clean && webpack build --progress",
-    "serve": "echo 'Navigate to http://localhost:1337/demo/basic/iframe/index.html' && serve . --listen 1337",
+    "serve": "echo 'Navigate to http://localhost:1337/demo/basic/iframe/index.html' && serve . --listen 1337 --cors",
     "clean": "rimraf dist"
   },
   "dependencies": {
